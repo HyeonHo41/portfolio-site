@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>Letter Explosion</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    overflow: hidden;
+    font-family: "Noto Sans KR", sans-serif;
+  }
+  .text-container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 3rem;
+    transform-style: preserve-3d;
+  }
+  .char {
+    display: inline-block;
+    margin: 2px;
+  }
+  .hidden {
+    opacity: 0;
+  }
+</style>
+</head>
+<body>
+  <div class="text-container" id="container"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <script>
+    const container = document.getElementById("container");
+    const text1 = "안녕하세요? 저는";
+    const text2 = "backend 개발자 김현호입니다.";
+
+    // 초기: text1 출력
+    text1.split("").forEach(ch => {
+      const span = document.createElement("span");
+      span.classList.add("char");
+      span.textContent = ch;
+      container.appendChild(span);
+    });
+
+    const chars = document.querySelectorAll(".char");
+
+    // 폭발 애니메이션
+    gsap.timeline()
+      .to(chars, {
+        duration: 1.6,
+        x: () => gsap.utils.random(-400, 400),
+        y: () => gsap.utils.random(-300, 300),
+        z: () => gsap.utils.random(-400, 400),
+        rotationX: () => gsap.utils.random(-720, 720),
+        rotationY: () => gsap.utils.random(-720, 720),
+        opacity: 0,
+        filter: "blur(6px)",
+        stagger: { each: 0.05, from: "center" },
+        ease: "power3.out",
+        delay: 0.8
+      })
+      .add(() => {
+        // 폭발 후 새로운 문장 등장
+        container.innerHTML = "";
+        text2.split("").forEach(ch => {
+          const span = document.createElement("span");
+          span.classList.add("char", "hidden");
+          span.textContent = ch;
+          container.appendChild(span);
+        });
+        const nextChars = container.querySelectorAll(".char");
+
+        // 새 문장 페이드 인
+        gsap.to(nextChars, {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          ease: "power2.out",
+          stagger: 0.05
+        });
+      });
+  </script>
+</body>
+</html>

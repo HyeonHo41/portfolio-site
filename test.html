@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Scroll Scatter Text</title>
+<style>
+  html,body{
+    margin:0; padding:0;
+    height:200vh; /* 스크롤 생기게 */
+    background:#000;
+    color:#fff;
+    overflow-x:hidden;
+  }
+  section{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+  h1{
+    font-size:6rem;
+    letter-spacing:0.2em;
+    font-family:'Open Sans',sans-serif;
+    display:flex;
+    gap:0.1em;
+  }
+  span{
+    display:inline-block;
+    transition:transform .4s ease, opacity .4s ease;
+  }
+</style>
+</head>
+<body>
+
+<section>
+  <h1 id="scatter-text">C R E A T I V E</h1>
+</section>
+
+<script>
+const title = document.getElementById('scatter-text');
+const letters = title.textContent.split('');
+title.textContent = ''; // 기존 텍스트 비우기
+
+// 각 문자 span으로 감싸기
+letters.forEach(ch=>{
+  const span = document.createElement('span');
+  span.textContent = ch;
+  title.appendChild(span);
+});
+
+const spans = title.querySelectorAll('span');
+
+// 랜덤 이동 방향 미리 설정
+const directions = Array.from(spans).map(()=>{
+  return {
+    x: (Math.random()-0.5)*200, // -100~100px
+    y: (Math.random()-0.5)*200, // -100~100px
+    rot: (Math.random()-0.5)*90 // 회전각도
+  };
+});
+
+// 스크롤 비율 계산 후 각 문자 이동
+window.addEventListener('scroll',()=>{
+  const scroll = window.scrollY / (window.innerHeight); // 0~1 정도
+  spans.forEach((span,i)=>{
+    const {x,y,rot} = directions[i];
+    const tx = x * scroll;
+    const ty = y * scroll;
+    const r = rot * scroll;
+    span.style.transform = `translate(${tx}px, ${ty}px) rotate(${r}deg)`;
+    span.style.opacity = `${1 - scroll}`;
+  });
+});
+</script>
+</body>
+</html>
