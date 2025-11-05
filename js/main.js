@@ -107,13 +107,21 @@ window.addEventListener('scroll', function(){
     })
   }
 })
-
+//햄버거 바 클릭시 toggle로 열고 닫기 //타겟누를 시 열고 닫기
 const hamburgerBtn = document.querySelector('.btn-hamburger');
 const navEl = document.querySelector('header nav');
+const liTarget = document.querySelectorAll('header li');
 
   hamburgerBtn.addEventListener('click',function(){
       navEl.classList.toggle('active'); 
 })
+
+  liTarget.forEach(function(li){
+    li.addEventListener('click',function(){
+      navEl.classList.remove('active');
+    })
+  })
+      
 
 
 
