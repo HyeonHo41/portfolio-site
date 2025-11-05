@@ -61,5 +61,78 @@ imageCloseBtn.forEach(function(btn){
   });
 });
 
+// ESC 키로 닫기
+
+document.addEventListener('keydown', function (event) {
+  if(event.key==='Escape'){
+    imageModal.style.display="none";
+  } 
+});
+//모달 바깥 영역 클릭 시 닫기
+imageModal.addEventListener('click',function(event){
+  event.stopPropagation; //이벤트 버블링 막기
+  if(event.target===event.currentTarget){
+    imageModal.style.display="none";
+  }
+  console.log(event.target);       
+  console.log(event.currentTarget);//실제 이벤트가 바인딩된 요소 this와 동일
+})
+
+
+// 현재 연도 표시
+// 날짜 정보를 가진 JS의 Date 객체를 활용
+
+console.log(new Date().getFullYear());
+const thisYear = document.querySelector('.this-year');
+thisYear.textContent = new Date().getFullYear();
+
+// 페이지 최상단 이동
+const toTopEl = document.querySelector('#toTop');
+const flash=document.querySelectorAll('.animate-flash')
+//페이지에 스크롤 이벤트 감지를 추가
+// 브라우저는 문서 전체의 스크롤을 window 기준으로 처리
+// window:브라우저 창 객체
+window.addEventListener('scroll', function(){
+  const px=window.scrollY;
+  if(px>500){
+    toTopEl.style=`opacity: 1; transform: translateX(0);`;
+    flash.forEach(function(El){
+    El.classList.remove('animate-flash');
+    })
+
+  } else if(px<500){
+    toTopEl.style=`opacity:0; transform: translateX(100px);`;
+    flash.forEach(function(El){
+    El.classList.add('animate-flash');
+    })
+  }
+})
+
+
+
+
+// // 스크롤 헤더바
+//  let lastScroll = 0;
+//  const header = document.querySelector('.header');
+
+// window.addEventListener('scroll', () => {
+//   const currentScroll = window.scrollY;
+
+//   // 페이지 상단에서는 항상 표시
+//   if (currentScroll <= 0) {
+//     header.classList.remove('hide');
+//     return;
+//   }
+
+//   if (currentScroll > lastScroll) {
+//     // 스크롤 내릴 때 → 숨김
+//     header.classList.add('hide');
+//   } else {
+//     // 스크롤 올릴 때 → 표시
+//     header.classList.remove('hide');
+//   }
+
+//   lastScroll = currentScroll;
+// });
 
 

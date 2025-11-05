@@ -2,6 +2,9 @@
 *{
   box-sizing: border-box;
 }
+html,body{
+  overflow-x: hidden;  /*x축 넘치는 요소 스크롤 방지*/ /*모바일에서는 body보다 html을 기준으로 스크롤을 판단*/
+}
 html{
   /* 스크롤 이동을 부드럽게 */
   scroll-behavior: smooth;
@@ -103,13 +106,16 @@ header{
   width: 100%;
   z-index: 10;        /*보여지는 우선 순위*/
 }
-
 header > .inner{
   height: 60px;
   display: flex;
   justify-content:space-between;   /*주축 정렬*/
   align-items: center;
+  transition: 0.3 ease;
 }
+.hide {
+  transform: translateY(-100%);
+} 
 header .logo img{
   width: 40px;
 }
@@ -372,9 +378,86 @@ header nav ul li a:hover::after{
 #imageModal .modal-body{
   padding: 16px;
 }
+/* SCROLL TO TOP */
+#toTop{
+  width: 42px;
+  height: 42px;
+  background-color: #fff8e8;
+  border: 2px solid #333;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  cursor: pointer;
+  z-index: 9;
+  opacity: 0;
+  transform: translateX(100px);
+  transition: 0.5s;
+}
 
+#toTop a span{
+  display: block;
+}
 
+/* CONTACT */
+.contact{
+  padding: 200px 0;
+}
+.contact .contact__info li{
+  line-height: 2;
+  text-align: center;
+  transition: 1s; 
+  opacity: 0;
+}
+/* 애니메이션 효과 추가 */
+.contact .contact__info li:nth-child(1),
+.contact .contact__info li:nth-child(3){
+  transform:translateX(150px);
+}
+.contact .contact__info li:nth-child(2){
+  transform:translateX(-150px);
+}
+.contact.show .contact__info li{
+  transform:translateX(0);
+  opacity: 1;
+}
+.contact .contact__sns{
+  margin-top: 20px;
+}
+.contact .contact__sns ul{
+  display: flex;
+  justify-content: center;
+  column-gap: 10px;
+}
+.contact .contact__sns ul li{
+  transform: translateY(100px);
+  opacity: 0;
+  transition: 1s;
+}
+.contact.show .contact__sns ul li{
+  transform: translateY(0);
+  opacity: 1;
+}
+.contact.show .contact__sns ul li:nth-child(1){transition-delay: 0.2s;}
+.contact.show .contact__sns ul li:nth-child(2){transition-delay: 0.4s;}
+.contact .contact__sns ul li img{
+  width: 30px;
+}
 
+/* FOOTER */
+footer{
+  background-color: #000;
+  color: #fff;
+}
+footer .copyright{
+  text-align: center;
+  font-weight: 700;
+  line-height: 200px;
+}
 
    /*span태그는 글자 묶을 때 사용*/
    /*애니메이션 정의는 맨 마지막에*/
