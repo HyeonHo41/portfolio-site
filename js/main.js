@@ -124,19 +124,28 @@ const liTarget = document.querySelectorAll('header li');
       
 
 
-
-// 스크롤 헤더바
- let lastScroll = 0;
- const header = document.querySelector('header');
+let lastScroll = 0;
+const header = document.querySelector('header');
+const delta = 30; // 10px 이상 움직일 때만 반응
 
 window.addEventListener('scroll', () => {
   const currentScroll = window.scrollY;
 
+  // 변화량 계산 (현재 위치 - 이전 위치의 절댓값)
+  const scrollDiff = Math.abs(currentScroll - lastScroll);
+
+  // 변화가 10px 미만이면 무시
+  if (scrollDiff < delta) {
+    return;
+  }
+
   // 페이지 상단에서는 항상 표시
   if (currentScroll <= 0) {
     header.classList.remove('hide');
+    lastScroll = currentScroll;
     return;
   }
+
   if (currentScroll > lastScroll) {
     // 스크롤 내릴 때 숨김
     header.classList.add('hide');
@@ -145,6 +154,7 @@ window.addEventListener('scroll', () => {
     header.classList.remove('hide');
   }
 
+  // 마지막 스크롤 위치 갱신
   lastScroll = currentScroll;
 });
 
