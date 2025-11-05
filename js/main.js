@@ -122,12 +122,10 @@ const liTarget = document.querySelectorAll('header li');
     })
   })
 navEl.addEventListener('click',function(event){
-  event.stopPropagation; //이벤트 버블링 막기
+  event.stopPropagation; 
   if(event.target===event.currentTarget){
     navEl.classList.remove('active');
   }
-  console.log(event.target);       
-  console.log(event.currentTarget);//실제 이벤트가 바인딩된 요소 this와 동일
 })      
 
 
