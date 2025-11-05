@@ -95,7 +95,7 @@ const flash=document.querySelectorAll('.animate-flash')
 window.addEventListener('scroll', function(){
   const px=window.scrollY;
   if(px>500){
-    toTopEl.style=`opacity: 1; transform: translateX(0);`;
+    toTopEl.style=`opacity: 0.8; transform: translateX(0);`;
     flash.forEach(function(El){
     El.classList.remove('animate-flash');
     })
@@ -124,7 +124,7 @@ const liTarget = document.querySelectorAll('header li');
   navEl.addEventListener('click',function(event){
     event.stopPropagation; 
     if(event.target===event.currentTarget){
-      navEl.classList.remove('active');
+    navEl.classList.remove('active');
   }
 })      
 
