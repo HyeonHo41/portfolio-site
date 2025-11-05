@@ -108,31 +108,36 @@ window.addEventListener('scroll', function(){
   }
 })
 
+const hamburgerBtn = document.querySelector('.btn-hamburger');
+const navEl = document.querySelector('header nav');
+
+  hamburgerBtn.addEventListener('click',function(){
+      navEl.classList.toggle('active'); 
+})
 
 
 
-// // 스크롤 헤더바
-//  let lastScroll = 0;
-//  const header = document.querySelector('.header');
+// 스크롤 헤더바
+ let lastScroll = 0;
+ const header = document.querySelector('header');
 
-// window.addEventListener('scroll', () => {
-//   const currentScroll = window.scrollY;
+window.addEventListener('scroll', () => {
+  const currentScroll = window.scrollY;
 
-//   // 페이지 상단에서는 항상 표시
-//   if (currentScroll <= 0) {
-//     header.classList.remove('hide');
-//     return;
-//   }
+  // 페이지 상단에서는 항상 표시
+  if (currentScroll <= 0) {
+    header.classList.remove('hide');
+    return;
+  }
+  if (currentScroll > lastScroll) {
+    // 스크롤 내릴 때 숨김
+    header.classList.add('hide');
+  } else {
+    // 스크롤 올릴 때 표시
+    header.classList.remove('hide');
+  }
 
-//   if (currentScroll > lastScroll) {
-//     // 스크롤 내릴 때 → 숨김
-//     header.classList.add('hide');
-//   } else {
-//     // 스크롤 올릴 때 → 표시
-//     header.classList.remove('hide');
-//   }
-
-//   lastScroll = currentScroll;
-// });
+  lastScroll = currentScroll;
+});
 
 
