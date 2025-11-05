@@ -121,10 +121,10 @@ const liTarget = document.querySelectorAll('header li');
       navEl.classList.remove('active');
     })
   })
-navEl.addEventListener('click',function(event){
-  event.stopPropagation; 
-  if(event.target===event.currentTarget){
-    navEl.classList.remove('active');
+  navEl.addEventListener('click',function(event){
+    event.stopPropagation; 
+    if(event.target===event.currentTarget){
+      navEl.classList.remove('active');
   }
 })      
 
