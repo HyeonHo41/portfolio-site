@@ -750,7 +750,6 @@ footer .copyright {
     margin: 0 auto;
     transform: translateY(50px);
     transition: 1s;
-    transition-delay: 0.4s;
     opacity: 0;
   }
   .about.show .about__wrapper .about__img {
@@ -765,7 +764,6 @@ footer .copyright {
     text-align: center;
     transform: translateY(50px);
     transition: 1s;
-    transition-delay: 0.5s;
     opacity: 0;   
   }
   .about.show .about__wrapper .about__text {
