@@ -748,7 +748,8 @@ footer .copyright {
     width: 50%;
     margin: 0 auto;
     transform: translateY(50px);
-    transition: 0.8s;
+    transition: 1s;
+    transition-delay: 0.4s;
     opacity: 0;
   }
   .about.show .about__wrapper .about__img {
@@ -762,8 +763,8 @@ footer .copyright {
     width: 100%;
     text-align: center;
     transform: translateY(50px);
-    transition: 0.8s;
-    transition-delay: 0.3s;
+    transition: 1s;
+    transition-delay: 0.5s;
     opacity: 0;   
   }
   .about.show .about__wrapper .about__text {
