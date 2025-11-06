@@ -21,6 +21,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 
+  <!-- Font Awesome 연결 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
   <!--구글 머티리얼 아이콘 연결-->
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
@@ -68,56 +72,24 @@
   <section class="visual">
     <!--첫 화면에 눈길을 끌 수 있는 자기를 소개하는 내용 담기  -->
     <div class="inner">
-      <h1>
-        <!-- ✅ 교체된 부분 -->
-        <span class="animate-flash" style="animation-delay: 0.04s;">새</span>
-        <span class="animate-flash" style="animation-delay: 0.26s;">로</span>
-        <span class="animate-flash" style="animation-delay: 0.08s;">운</span>
-        &nbsp;
-        <span class="animate-flash purple" style="animation-delay: 0.02s;">가</span>
-        <span class="animate-flash purple" style="animation-delay: 0.26s;">치</span>
-        <span class="animate-flash purple" style="animation-delay: 0.06s;">를</span>
-        &nbsp;
-        <span class="animate-flash purple" style="animation-delay: 0.14s;">만</span>
-        <span class="animate-flash purple" style="animation-delay: 0.10s;">드</span>
-        <span class="animate-flash purple" style="animation-delay: 0.20s;">는</span>
-        <br>
-
-        <!-- ✅ 아래는 기존 그대로 -->
-        <span class="animate-flash" style="animation-delay: 0.06s;">F</span>
-        <span class="animate-flash" style="animation-delay: 0.28s;">u</span>
-        <span class="animate-flash" style="animation-delay: 0.12s;">l</span>
-        <span class="animate-flash" style="animation-delay: 0.15s;">l</span>
-        &nbsp;
-        <span class="animate-flash" style="animation-delay: 0.02s;">S</span>
-        <span class="animate-flash" style="animation-delay: 0.22s;">t</span>
-        <span class="animate-flash" style="animation-delay: 0.17s;">a</span>
-        <span class="animate-flash" style="animation-delay: 0.19s;">c</span>
-        <span class="animate-flash" style="animation-delay: 0.20s;">k</span>
-        &nbsp;<br class="mobile-lf" style="display: none;">
-        <span class="animate-flash purple" style="animation-delay: 0.11s;">D</span>
-        <span class="animate-flash purple" style="animation-delay: 0.18s;">e</span>
-        <span class="animate-flash purple" style="animation-delay: 0.05s;">v</span>
-        <span class="animate-flash purple" style="animation-delay: 0.06s;">e</span>
-        <span class="animate-flash purple" style="animation-delay: 0.09s;">l</span>
-        <span class="animate-flash purple" style="animation-delay: 0.24s;">o</span>
-        <span class="animate-flash purple" style="animation-delay: 0.28s;">p</span>
-        <span class="animate-flash purple" style="animation-delay: 0.14s;">e</span>
-        <span class="animate-flash purple" style="animation-delay: 0.25s;">r</span>
-        <br>
-        <span class="animate-flash purple" style="animation-delay: 0.10s;">김</span>
-        <span class="animate-flash purple" style="animation-delay: 0.16s;">현</span>
-        <span class="animate-flash purple" style="animation-delay: 0.24s;">호</span>
-        <span class="animate-flash" style="animation-delay: 0.12s;">입</span>
-        <span class="animate-flash" style="animation-delay: 0.15s;">니</span>
-        <span class="animate-flash" style="animation-delay: 0.05s;">다</span>
-        <span class="animate-flash" style="animation-delay: 0.13s;">.</span>
-      </h1>
+      <div class="div-max">
+        <div class="badge">🚀 서버/인프라 중심 · 안정성과 확장성에 집중</div>  
+        <h1>안녕하세요,<br><span class="textColor">김현호</span>입니다.</h1>
+        <p>확장 가능한 시스템 설계와 성능 최적화에 집중하는 백엔드 개발자입니다.<br>깔끔한 코드와 효율적인 아키텍처를 추구합니다.</p>
+        <div class="btn-wrap">
+          <a href="#contact" class="btn contact-btn">
+          <span class="material-symbols-outlined btn-close">mail</span>Contact Me
+           </a>
+          <a href="https://github.com/사용자명" target="_blank" class="btn github-btn">
+          <i class="fa-brands fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- ABOUT -->
-  <section id="about" class="about">
+  <section id="about" class="about scroll-spy">
     <div class="inner">
       <h2 class="title">ABOUT</h2>
       <div class="about__wrapper">
@@ -142,7 +114,7 @@
       <!-- 연락처 버튼 -->
        <div class="about__btn">
         <a href="#contact">
-          <img src="./images/icon/icon_contact.png" alt="연락처">CONTACT
+          <span class="material-symbols-outlined btn-close">Call</span>CONTACT
         </a>
        </div>
     </div>
@@ -318,7 +290,7 @@
     <div class="inner">
       <p class="copyright">
         &copy; <span class="this-year"></span>
-        Kim Hyeon Ho.&nbsp;&nbsp;&nbsp;I’m looking forward to hearing from you.
+        Kim Hyeon Ho.&nbsp;&nbsp;&nbsp;<br>I’m looking forward to hearing from you.
       </p>
     </div>
   </footer>

@@ -1,61 +1,74 @@
 /* COMMON*/
-*{
+* {
   box-sizing: border-box;
 }
-html,body{
-  overflow-x: hidden;  /*x축 넘치는 요소 스크롤 방지*/ /*모바일에서는 body보다 html을 기준으로 스크롤을 판단*/
+
+html,
+body {
+  overflow-x: hidden;
+  /*x축 넘치는 요소 스크롤 방지*/
+  /*모바일에서는 body보다 html을 기준으로 스크롤을 판단*/
 }
-html{
+
+html {
   /* 스크롤 이동을 부드럽게 */
   scroll-behavior: smooth;
 }
 
-body{
+body {
   /* 글자 관련 기본(공통)스타일*/
-  font-family: "Open Sans","Noto Sans KR", sans-serif;
+  font-family: "Open Sans", "Noto Sans KR", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.6;
-  color: #333;
+  color: #e8eefc;
+  background: linear-gradient(180deg, #0b0f17 0%, #0d1322 100%);
 
   /* 고정된 헤더 테스트용 */
   /* height: 3000px; */
 }
 
 /*영문에만 적용할 폰트 */
-.font-en{
+.font-en {
   font-family: "Open Sans", sans-serif;
 }
-a{
+
+a {
   /* 밑줄 제거*/
   text-decoration: none;
   color: inherit;
 }
-.inner{
+
+.inner {
   max-width: 1200px;
   /* 가로 너비를 가진 블록 요소의 가운데 정렬*/
   margin: 0 auto;
 }
 
-.title{
+.title {
   font-size: 50px;
   font-weight: 800;
   text-align: center;
   margin-bottom: 50px;
 }
-.title::after{
-  content:""; 
-  display: block;  
+
+.title::after {
+  content: "";
+  display: block;
   width: 80px;
   height: 2px;
   background-color: #333;
   margin: 24px auto 0;
 }
-img{
+
+img {
   /* 이미지가 인라인 요소라서 발생하는 문자 기준선(Baseline) 아래의 공간을 제거하기 위해 */
   display: block;
 }
-.btn{
+.textColor{
+  color: #3db9ff;
+}
+.btn {
   display: block;
   width: 120px;
   padding: 10px;
@@ -66,189 +79,314 @@ img{
   text-align: center;
   cursor: pointer;
 }
-.btn:hover{
+
+.btn:hover {
   background-color: #333;
   color: #fff;
 }
+
 .btn.btn--purple {
   color: #9b30ff;
   border-color: #9b30ff;
 }
+
 .btn.btn--purple:hover {
   color: #fff;
   background-color: #9b30ff;
 }
+
 .btn.btn--brown {
   color: #592b18;
   border-color: #592b18;
 }
+
 .btn.btn--brown:hover {
   color: #fff;
   background-color: #592b18;
 }
-.animate-flash{
+
+.animate-flash {
   animation-name: flash;
-  animation-duration: 0.5s; /*애니메이션 시간*/
+  animation-duration: 0.5s;
+  /*애니메이션 시간*/
   /* animation-timing-function: linear; */
   animation-iteration-count: 5;
 }
 
 /* HEADER */
-header{
-  background-color: #fff;
+header {
+  background: radial-gradient(800px 300px at 10% 0%, rgba(38, 59, 92, 0.95), transparent 60%),
+    radial-gradient(600px 230px at 90% 0%, rgba(60, 47, 97, 0.92), transparent 60%);
+  backdrop-filter: blur(25px);
   border-bottom: 1px solid #c8c8c8;
-  box-shadow: 0 2px 8px rgba(204, 204, 204,0.8);
+  box-shadow: 0 2px 8px rgba(204, 204, 204, 0.8);
 
   /* 고정된 헤더 만들기 */
-  position: fixed;    /*뷰포트기준 fixed*/
+  position: fixed;
+  /*뷰포트기준 fixed*/
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 10;        /*보여지는 우선 순위*/
-  transition: all 0.5s ease; /* 부드러운 전환 */
+  z-index: 10;
+  /*보여지는 우선 순위*/
+  transition: all 0.5s ease;
+  /* 부드러운 전환 */
   opacity: 1;
   transform: translateY(0);
-  
 }
-header > .inner{
+
+header>.inner {
   height: 60px;
   display: flex;
-  justify-content:space-between;   /*주축 정렬*/
+  justify-content: space-between;
+  /*주축 정렬*/
   align-items: center;
   transition: 0.3 ease;
 }
+
 .hide {
   transform: translateY(-100%);
-} 
-header .logo img{
+}
+
+header .logo img {
   width: 40px;
 }
-header nav ul{
+
+header nav ul {
   display: flex;
 }
-header nav ul li{
+
+header nav ul li {
   padding: 10px 20px;
   font-weight: bold;
 }
-header nav ul li a{
+
+header nav ul li a {
   position: relative;
 }
-header nav ul li a:hover{
-  color: #9b30ff;
+
+header nav ul li a:hover {
+  background: linear-gradient(90deg, #6ea8fe, #9b7bff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
-header nav ul li a::after{
+
+header nav ul li a::after {
   /* ::after 가상 요소의 장점은 HTML 구조 추가와 class 속성 값의 추가 없이 구현 및 제어 가능 */
-  content:""; /*가상 요소 필수 속성*/ /*a 태그 내부 뒤의 붙는다.*/
-  display: block;  /*inline요소기 때문에 block을 넣어야 나온다*/
+  content: "";
+  /*가상 요소 필수 속성*/
+  /*a 태그 내부 뒤의 붙는다.*/
+  display: block;
+  /*inline요소기 때문에 block을 넣어야 나온다*/
   width: 0;
   height: 2px;
   background-color: #9b30ff;
   transition: width 0.5s ease;
-  position: absolute; /*부모 position 찾을때까지 상위로 이동 보통 부모에 relative를 줌*/
+  position: absolute;
+  /*부모 position 찾을때까지 상위로 이동 보통 부모에 relative를 줌*/
   left: 0;
   bottom: -8px;
 }
-header nav ul li a:hover::after{
+
+header nav ul li a:hover::after {
   width: 100%;
 }
-header .btn-hamburger{
+
+header .btn-hamburger {
   display: none;
 }
-header .btn-hamburger .material-symbols-outlined{
+
+header .btn-hamburger .material-symbols-outlined {
   font-size: 40px;
   display: block;
 }
+
 /* VISUAL */
-.visual{
+.visual {
   /* 헤더가 fixed 되어 일반 배치 흐름에서 벗어남(주변 요소들과 상호작용하지 않음)
      헤더 다음에 오는 요소는 헤더의 높이만큼 외부 여백 추가 */
-  margin-top: 60px;
-  background-color: #000;
+  margin-top: 20px;
+  background: radial-gradient(800px 330px at 10% 0%, rgba(110, 168, 254, .22), transparent 60%),
+    radial-gradient(600px 330px at 90% 0%, rgba(155, 123, 255, .18), transparent 60%);
   color: #fff;
-  
 }
-.visual > .inner{
-  height: calc(100vh - 60px); /*첫 번째 섹션이 뷰포트에 가득 차도록*/
+
+.visual>.inner {
+  height: calc(70vh - 10px);
+  /*첫 번째 섹션이 뷰포트에 가득 차도록*/
   font-size: 70px;
   display: flex;
-  align-items: center; 
+  flex-direction: column;
+  justify-content: center;
 }
-.visual > .inner .purple{
+.visual>.inner .purple {
   color: #9b30ff;
 }
+.visual>.inner .div-max{
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  padding-top: 12vh;
+  gap: 25px;
+
+}
+.visual>.inner .badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  width: 300px;
+  background:rgba(255,255,255,.06); border:1px dashed var(--border);
+  padding:8px 10px;
+  border-radius:999px;
+  color:#c6cfe2;
+  font-size:14px;
+}
+.btn-wrap{
+  display: flex;
+  gap: 20px;
+}
+.github-btn{
+  border-radius: 10px;
+  border: 2px solid rgb(39, 39, 56);
+  width: 105px;
+  transition: 0.3s;
+}
+.github-btn:hover{
+  border-color: #6ea8fe;
+  background-color: #1b1b1b;
+}
+.contact-btn{
+  display: flex;
+  border-radius: 10px;
+  border: 2px solid rgb(39, 39, 56);
+  width: 140px;
+  gap: 5px;
+  transition: 0.25s;
+}
+.contact-btn:hover{
+  border-color: #6ea8fe;
+  background-color: #1b1b1b;
+}
+.div-max h1{
+  line-height:1.4;
+  font-weight: bold;
+}
+.div-max p{
+  line-height:1.5;
+  font-size: 18px;
+  color: #b6b2b2;
+}
+
 /* ABOUT */
 .about {
   padding: 150px 0;
 }
-.about >.inner{
+
+.about>.inner {
   position: relative;
 }
-.about .about__wrapper{
+
+.about .about__wrapper {
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
 }
-.about .about__wrapper .about__img{
+
+.about .about__wrapper .about__img {
   width: 40%;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 0.8s;
+  opacity: 0;
 }
-.about .about__wrapper .about__img img{
+
+.about .about__wrapper .about__img img {
   width: 100%;
   border-radius: 50%;
-  box-shadow: 5px 5px 20px 5px rgba(0,0,0,0.1);
+  box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.1);
 }
-.about .about__wrapper .about__text{
+
+.about .about__wrapper .about__text {
   width: 40%;
   padding: 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  transform: translateY(50px);
+  transition: 0.8s;
+  opacity: 0;
 }
+.about.show .about__wrapper .about__img {
+  transform: translateY(0);
+  opacity: 1;
+}
+.about.show .about__wrapper .about__text {
+  transform: translateY(0);
+  opacity: 1;
+}
+
 .about .about__wrapper .about__text .slogan {
   font-size: 35px;
   font-weight: bold;
 }
+
 .about .about__wrapper .about__text h3 {
   font-size: 20px;
   font-weight: 600;
 }
+
 .about .about__wrapper .about__text h4 {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 16px;
 }
+
 .about .about__wrapper .about__text li {
   line-height: 1.8;
 }
 
-.about .about__btn{
+.about .about__btn {
   position: absolute;
   bottom: -30px;
   right: 30px;
 }
-.about .about__btn img{
+
+.about .about__btn img {
   display: inline;
   vertical-align: middle;
   width: 28px;
   margin-right: 10px;
-} 
-
-
+}
+.about__btn a{
+  transition: 0.3s;
+  display: flex;
+  gap: 7px;
+}
+.about__btn a:hover{
+  color: #6ea8fe;
+}
+.about__btn a span{
+  display: flex;
+}
 /* SKILL */
-.skill{
-  padding: 150px 0;
-  background-color: #000;
+.skill {
+  padding: 160px 0;
   color: #fff;
 }
-.skill .title::after{
+
+.skill .title::after {
   background-color: #fff;
 }
-.skill .skill__list{
+
+.skill .skill__list {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
   gap: 30px;
   text-align: center;
 }
-.skill .skill__list > li{
+
+.skill .skill__list>li {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -261,6 +399,7 @@ header .btn-hamburger .material-symbols-outlined{
   transition: 1s;
   opacity: 0;
 }
+
 /* hover로 먼저 테스트 후 스크롤 이벤트 넣기 */
 /*.skill .skill__list > li:hover{
   top: 0px;
@@ -269,20 +408,32 @@ header .btn-hamburger .material-symbols-outlined{
   opacity: 1;
 
 }*/
-.skill.show .skill__list > li{ 
+.skill.show .skill__list>li {
   transform: translateY(0px);
   opacity: 1;
 }
-.skill.show .skill__list > li:nth-child(1){transition-delay: 0.2s;}
-.skill.show .skill__list > li:nth-child(2){transition-delay: 0.4s;}
-.skill.show .skill__list > li:nth-child(4){transition-delay: 0.8s;}
-.skill.show .skill__list > li:nth-child(3){transition-delay: 0.6s;}
-.skill.show .skill__list > li:nth-child(5){transition-delay: 1s;}
 
+.skill.show .skill__list>li:nth-child(1) {
+  transition-delay: 0.2s;
+}
 
+.skill.show .skill__list>li:nth-child(2) {
+  transition-delay: 0.4s;
+}
 
+.skill.show .skill__list>li:nth-child(4) {
+  transition-delay: 0.8s;
+}
 
-.skill .skill__list li h3{
+.skill.show .skill__list>li:nth-child(3) {
+  transition-delay: 0.6s;
+}
+
+.skill.show .skill__list>li:nth-child(5) {
+  transition-delay: 1s;
+}
+
+.skill .skill__list li h3 {
   width: 50px;
   height: 40px;
   background-color: #9b30ff;
@@ -290,73 +441,84 @@ header .btn-hamburger .material-symbols-outlined{
   font-size: 30px;
   font-weight: bold;
   letter-spacing: -2px;
-  transform:rotate(-20deg);
+  transform: rotate(-20deg);
   transition: 0.5s;
+}
 
+.skill .skill__list li:hover h3 {
+  transform: rotate(0deg);
 }
-.skill .skill__list li:hover h3{
-  transform:rotate(0deg)
-}
-.skill .skill__list li h4{
+
+.skill .skill__list li h4 {
   font-size: 18px;
   font-weight: bold;
   margin: 30px 0 20px;
 }
 
 /* PROJECT */
-.project{
+.project {
   padding: 150px 0;
 }
-.project .port{
+
+.project .port {
   display: flex;
   margin: 20px 0;
 }
-.project .port .port__img,    /*다중 선택*/
-.project .port .port__text{
+
+.project .port .port__img,
+/*다중 선택*/
+.project .port .port__text {
   width: 50%;
   height: 400px;
 }
-.project .port .port__img .swiper{
+
+.project .port .port__img .swiper {
   width: 100%;
   height: 100%;
 }
-.project .port .port__img .swiper img{
+
+.project .port .port__img .swiper img {
   width: 100%;
   height: 100%;
-  object-fit: contain;    /*contain은 영역에 맞추느라 여백생김,cover는 더 큰 영역에 닿으면 끝 이미지 잘림현상*/
+  object-fit: contain;
+  /*contain은 영역에 맞추느라 여백생김,cover는 더 큰 영역에 닿으면 끝 이미지 잘림현상*/
 }
-.project .port .port__text{
+
+.project .port .port__text {
   padding: 30px;
   font-size: 14px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
-.project .port .port__text h3{
+
+.project .port .port__text h3 {
   font-size: 20px;
   font-weight: 800;
 }
-.project .port .port__text li{
+
+.project .port .port__text li {
   line-height: 1.8;
 }
-.project .port .port__text li span{
+
+.project .port .port__text li span {
   font-weight: bold;
 }
-.project .port .btn-group{
+
+.project .port .btn-group {
   display: flex;
   column-gap: 40px;
 }
 
-
 /* MODAL */
-#imageModal{
+#imageModal {
   /* 화면(뷰포트)전체 영역 덮기 */
-  position:fixed;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 99;
 
   /* display: flex; 숨겨야해서 none이 마지막에 적용되기 때문에 적용x*/
@@ -364,11 +526,13 @@ header .btn-hamburger .material-symbols-outlined{
   align-items: center;
   display: none;
 }
-#imageModal .modal-content{
+
+#imageModal .modal-content {
   background-color: #fff;
   border-radius: 8px;
 }
-#imageModal .modal-header{
+
+#imageModal .modal-header {
   padding: 16px;
   background-color: #0f0f0f;
   color: #fff;
@@ -378,23 +542,27 @@ header .btn-hamburger .material-symbols-outlined{
   justify-content: space-between;
   align-items: center;
 }
-#imageModal .modal-header .btn-close{
+
+#imageModal .modal-header .btn-close {
   font-size: 30px;
   cursor: pointer;
 }
-#imageModal .modal-header .btn-close:hover{
+
+#imageModal .modal-header .btn-close:hover {
   color: #aaa;
 }
-#imageModal .modal-body{
+
+#imageModal .modal-body {
   padding: 16px;
 }
+
 /* SCROLL TO TOP */
-#toTop{
+#toTop {
   width: 42px;
   height: 42px;
-  background-color: #fff8e8;
-  border: 2px solid #333;
-  border-radius: 10px;
+  background: linear-gradient(135deg, #6ea8fe, #9b7bff);
+  border: 2px solid transparent;
+  border-radius: 12px;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -403,10 +571,14 @@ header .btn-hamburger .material-symbols-outlined{
   bottom: 30px;
   right: 30px;
   cursor: pointer;
-  z-index: 9;
+  z-index: 99;
+  isolation: isolate;
   opacity: 0;
-  transform: translateX(100px);
   transition: 0.5s;
+}
+#toTop:hover{
+  box-shadow: 0 0 8px rgba(155, 123, 255, 0.8);
+  scale: calc(1.2);
 }
 #toTop a {
   display: flex;
@@ -414,7 +586,6 @@ header .btn-hamburger .material-symbols-outlined{
   align-items: center;
   width: 100%;
   height: 100%;
-
 }
 
 #toTop a span {
@@ -427,64 +598,81 @@ header .btn-hamburger .material-symbols-outlined{
 }
 
 /* CONTACT */
-.contact{
+.contact {
   padding: 200px 0;
 }
-.contact .contact__info li{
+
+.contact .contact__info li {
   line-height: 2;
   text-align: center;
-  transition: 1s; 
+  transition: 1s;
   opacity: 0;
 }
+
 /* 애니메이션 효과 추가 */
 .contact .contact__info li:nth-child(1),
-.contact .contact__info li:nth-child(3){
-  transform:translateX(150px);
+.contact .contact__info li:nth-child(3) {
+  transform: translateX(150px);
 }
-.contact .contact__info li:nth-child(2){
-  transform:translateX(-150px);
+
+.contact .contact__info li:nth-child(2) {
+  transform: translateX(-150px);
 }
-.contact.show .contact__info li{
-  transform:translateX(0);
+
+.contact.show .contact__info li {
+  transform: translateX(0);
   opacity: 1;
 }
-.contact .contact__sns{
+
+.contact .contact__sns {
   margin-top: 20px;
 }
-.contact .contact__sns ul{
+
+.contact .contact__sns ul {
   display: flex;
   justify-content: center;
   column-gap: 10px;
 }
-.contact .contact__sns ul li{
+
+.contact .contact__sns ul li {
   transform: translateY(100px);
   opacity: 0;
   transition: 1s;
 }
-.contact.show .contact__sns ul li{
+
+.contact.show .contact__sns ul li {
   transform: translateY(0);
   opacity: 1;
 }
-.contact.show .contact__sns ul li:nth-child(1){transition-delay: 0.2s;}
-.contact.show .contact__sns ul li:nth-child(2){transition-delay: 0.4s;}
-.contact .contact__sns ul li img{
+
+.contact.show .contact__sns ul li:nth-child(1) {
+  transition-delay: 0.2s;
+}
+
+.contact.show .contact__sns ul li:nth-child(2) {
+  transition-delay: 0.4s;
+}
+
+.contact .contact__sns ul li img {
   width: 30px;
 }
 
 /* FOOTER */
-footer{
+footer {
+  padding: 20px 0; 
   background-color: #000;
-  color: #fff;
-}
-footer .copyright{
-  text-align: center;
-  font-weight: 700;
-  line-height: 200px;
+  color: #bdbdbd;
 }
 
+footer .copyright {
+  text-align: center;
+  font-weight: 700;
+  line-height: 30px;
+}
 
 /* 반응형 스타일 */
 @media screen and (max-width: 767px) {
+
   /* 모바일에서는 화면의 80%만 차지하도록 */
   .inner {
     width: 80%;
@@ -494,6 +682,7 @@ footer .copyright{
     font-size: 30px;
     margin-bottom: 24px;
   }
+
   .title::after {
     width: 60px;
   }
@@ -501,74 +690,109 @@ footer .copyright{
   header .btn-hamburger {
     display: block;
   }
-  header nav.active{
+
+  header nav.active {
     height: 100vh;
   }
+
   header nav {
-    background-color: #fff8e8;
+    background: rgba(16, 22, 34, 0.98); /* 배경보다 살짝 밝은 남보라빛 */
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 60px;
     left: 0;
     width: 100%;
     height: 0;
-    opacity: 0.92;
-    overflow: hidden; 
+    overflow: hidden;
     transition: height 0.3s ease;
   }
+
   header nav ul {
     flex-direction: column;
     padding-top: 60px;
   }
+
   header nav ul li {
     padding: 10px 80px;
     font-size: 30px;
   }
+
   header nav ul li a {
     transition: 0.5s;
   }
+
   header nav ul li a:hover {
     letter-spacing: 10px;
   }
-  .visual > .inner{
+
+  .visual>.inner {
     font-size: 30px;
   }
-  .visual > .inner .mobile-lf {
+
+  .visual>.inner .mobile-lf {
     display: inline !important;
   }
 
   .about {
     padding: 100px 0;
   }
+
   .about .about__wrapper {
     flex-direction: column;
   }
+
   .about .about__wrapper .about__img {
-    width: 80%;
+    width: 50%;
     margin: 0 auto;
+    transform: translateY(50px);
+    transition: 0.8s;
+    opacity: 0;
   }
+  .about.show .about__wrapper .about__img {
+    width: 50%;
+    margin: 0 auto;
+    transform: translateY(0);
+    opacity: 1;
+  }  
+
   .about .about__wrapper .about__text {
     width: 100%;
     text-align: center;
+    transform: translateY(50px);
+    transition: 0.8s;
+    transition-delay: 0.3s;
+    opacity: 0;   
   }
-
+  .about.show .about__wrapper .about__text {
+    transform: translateY(0);
+    opacity: 1;   
+  }  
   .skill {
     padding: 100px 0;
   }
-
+  .skill .title {
+    padding-bottom: 30px;
+  }
   .project {
     padding: 100px 0;
   }
+
   .project .port {
     flex-direction: column;
     margin: 40px 0;
   }
-  .project .port .port__img, 
+
+  .project .port .port__img,
   .project .port .port__text {
     width: 100%;
   }
+
   .project .port .port__text {
     padding: 20px 0 0;
   }
+
   .project .port .btn-group {
     margin-top: 20px;
   }
@@ -580,21 +804,28 @@ footer .copyright{
   #imageModal .modal-content {
     width: 80%;
   }
+
   #imageModal .modal-body img {
     width: 100%;
   }
+  footer .copyright{
+    line-height: 30px;
+    font-size: 15px;
+  }
 }
 
+/*span태그는 글자 묶을 때 사용*/
+/*애니메이션 정의는 맨 마지막에*/
+@keyframes flash {
 
+  0%,
+  50%,
+  100% {
+    opacity: 0.7;
+  }
 
-   /*span태그는 글자 묶을 때 사용*/
-   /*애니메이션 정의는 맨 마지막에*/
-   @keyframes flash{
-    0%,50%,100%{
-      opacity: 0.7;
-    }
-
-    25%,75%{
-      opacity: 0;
-    }
-   }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}

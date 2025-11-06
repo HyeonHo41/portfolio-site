@@ -91,7 +91,7 @@ const flash = document.querySelectorAll(".animate-flash");
 window.addEventListener("scroll", function () {
   const px = window.scrollY;
   if (px > 500) {
-    toTopEl.style = `opacity: 0.8; transform: translateX(0);`;
+    toTopEl.style = `opacity: 0.96; transform: translateX(0);`;
     flash.forEach(function (El) {
       El.classList.remove("animate-flash");
     });
@@ -140,7 +140,7 @@ window.addEventListener("scroll", () => {
   }
 
   // 페이지 상단에서는 항상 표시
-  if (currentScroll <= 0 || navEl.classList.contains("active")) {
+  if (currentScroll <= 20 || navEl.classList.contains("active")) {
     header.classList.remove("hide");
     lastScroll = currentScroll;
     return;
