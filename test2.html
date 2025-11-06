@@ -1,95 +1,114 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1.0" />
-<title>Letter Explosion</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Backend Developer Skills</title>
+  <style>
+    /* ===== 기본 설정 ===== */
+    :root {
+      --bg: #0b0f17;
+      --card-bg: rgba(255,255,255,0.05);
+      --card-border: rgba(255,255,255,0.15);
+      --accent: #9b7bff;
+      --text: #e5e5e5;
+    }
 
-<style>
-  body {
-    margin: 0;
-    height: 100vh;
-    background: #000;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    perspective: 1000px;
-    overflow: hidden;
-    font-family: "Noto Sans KR", sans-serif;
-  }
-  .text-container {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    font-size: 3rem;
-    transform-style: preserve-3d;
-  }
-  .char {
-    display: inline-block;
-    margin: 2px;
-  }
-  .hidden {
-    opacity: 0;
-  }
-</style>
+    body {
+      margin: 0;
+      font-family: "Pretendard", "Noto Sans KR", sans-serif;
+      background: radial-gradient(circle at 20% 30%, #1b2130, #0b0f17 70%);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: white;
+      margin-bottom: 40px;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+
+    /* ===== 카드 박스 레이아웃 ===== */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    .skill-box {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .skill-box:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 25px rgba(0,0,0,0.25);
+      border-color: var(--accent);
+    }
+
+    .skill-box h3 {
+      font-size: 1.4rem;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .skill-box p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #ccc;
+      white-space: pre-line;
+    }
+
+    /* 반응형 */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.6rem;
+      }
+      .skill-box {
+        padding: 22px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <div class="text-container" id="container"></div>
+  <h1>Backend Developer Tech Stack</h1>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <section class="skills">
+    <div class="skill-box">
+      <h3>Languages</h3>
+      <p>Python<br>Java<br>Go<br>TypeScript<br>Rust</p>
+    </div>
 
-  <script>
-    const container = document.getElementById("container");
-    const text1 = "안녕하세요? 저는";
-    const text2 = "backend 개발자 김현호입니다.";
+    <div class="skill-box">
+      <h3>Frameworks</h3>
+      <p>Spring Boot<br>FastAPI<br>Django<br>Express.js<br>Gin</p>
+    </div>
 
-    // 초기: text1 출력
-    text1.split("").forEach(ch => {
-      const span = document.createElement("span");
-      span.classList.add("char");
-      span.textContent = ch;
-      container.appendChild(span);
-    });
+    <div class="skill-box">
+      <h3>Databases</h3>
+      <p>PostgreSQL<br>MongoDB<br>Redis<br>MySQL<br>Elasticsearch</p>
+    </div>
 
-    const chars = document.querySelectorAll(".char");
-
-    // 폭발 애니메이션
-    gsap.timeline()
-      .to(chars, {
-        duration: 1.6,
-        x: () => gsap.utils.random(-400, 400),
-        y: () => gsap.utils.random(-300, 300),
-        z: () => gsap.utils.random(-400, 400),
-        rotationX: () => gsap.utils.random(-720, 720),
-        rotationY: () => gsap.utils.random(-720, 720),
-        opacity: 0,
-        filter: "blur(6px)",
-        stagger: { each: 0.05, from: "center" },
-        ease: "power3.out",
-        delay: 0.8
-      })
-      .add(() => {
-        // 폭발 후 새로운 문장 등장
-        container.innerHTML = "";
-        text2.split("").forEach(ch => {
-          const span = document.createElement("span");
-          span.classList.add("char", "hidden");
-          span.textContent = ch;
-          container.appendChild(span);
-        });
-        const nextChars = container.querySelectorAll(".char");
-
-        // 새 문장 페이드 인
-        gsap.to(nextChars, {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-          ease: "power2.out",
-          stagger: 0.05
-        });
-      });
-  </script>
+    <div class="skill-box">
+      <h3>DevOps</h3>
+      <p>Docker<br>Kubernetes<br>AWS<br>GitHub Actions<br>Terraform</p>
+    </div>
+  </section>
 </body>
 </html>
+

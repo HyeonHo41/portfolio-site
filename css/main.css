@@ -65,9 +65,6 @@ img {
   /* 이미지가 인라인 요소라서 발생하는 문자 기준선(Baseline) 아래의 공간을 제거하기 위해 */
   display: block;
 }
-.textColor{
-  color: #3db9ff;
-}
 .btn {
   display: block;
   width: 120px;
@@ -377,29 +374,56 @@ header .btn-hamburger .material-symbols-outlined {
 .skill .title::after {
   background-color: #fff;
 }
-
-.skill .skill__list {
+.skill .skill-wrap{
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  border: 1px solid white;
+}
+.skill .skill-card{
+  border: 1px solid white;
+  border-radius: 20px;
+  width: 290px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+  font-weight: bold;
+  font-size: 20px;
+}
+.skill .skill-card .skill-card-title{
+  height: 40%;
+  display: flex;
+}
+.skill .skill-card .skill-card-list{
+  height: 60%;  
+}
+/* .skill .skill__list {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
   gap: 30px;
   text-align: center;
-}
-
+} */
+/*
 .skill .skill__list>li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* 애니메이션 효과 추가 */
-  /*position: relative;
+  애니메이션 효과 추가
+  position: relative;
   top: 100px;
   transition: 0.5s;
-  opacity: 0; */
+  opacity: 0; 
   transform: translateY(100px);
   transition: 1s;
   opacity: 0;
-}
-
+}  
+*/
 /* hover로 먼저 테스트 후 스크롤 이벤트 넣기 */
 /*.skill .skill__list > li:hover{
   top: 0px;
@@ -408,7 +432,7 @@ header .btn-hamburger .material-symbols-outlined {
   opacity: 1;
 
 }*/
-.skill.show .skill__list>li {
+/* .skill.show .skill__list>li {
   transform: translateY(0px);
   opacity: 1;
 }
@@ -453,7 +477,7 @@ header .btn-hamburger .material-symbols-outlined {
   font-size: 18px;
   font-weight: bold;
   margin: 30px 0 20px;
-}
+} */
 
 /* PROJECT */
 .project {
