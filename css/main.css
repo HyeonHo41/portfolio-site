@@ -401,6 +401,18 @@ header .btn-hamburger .material-symbols-outlined {
 .skill .skill-card .skill-card-title{
   height: 40%;
   display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  gap: 6px;
+}
+.skill .skill-card .skill-card-title img{
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+.skill .skill-card .skill-card-title h3 {
+  display: block;
 }
 .skill .skill-card .skill-card-list{
   height: 60%;  
