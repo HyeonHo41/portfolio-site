@@ -687,6 +687,10 @@ footer .copyright {
     width: 60px;
   }
 
+  header {
+    background: radial-gradient(330px 180px at 15% 0%, rgba(38, 59, 92, 0.95), transparent 60%),
+    radial-gradient(220px 150px at 85% 0%, rgba(60, 47, 97, 0.92), transparent 60%);
+  }
   header .btn-hamburger {
     display: block;
   }
@@ -727,6 +731,10 @@ footer .copyright {
     letter-spacing: 10px;
   }
 
+  .visual{    
+    background: radial-gradient(380px 180px at 15% 0%, rgba(38, 59, 92, 0.95), transparent 60%),
+    radial-gradient(280px 150px at 85% 0%, rgba(60, 47, 97, 0.92), transparent 60%);
+  }
   .visual>.inner {
     font-size: 30px;
     padding-top: 50px;
