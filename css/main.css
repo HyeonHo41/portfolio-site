@@ -57,8 +57,9 @@ a {
   display: block;
   width: 80px;
   height: 2px;
-  background-color: #333;
-  margin: 24px auto 0;
+  background-color: #e8eefc;
+  margin: 20px auto 0;
+  opacity: 0.79;
 }
 
 img {
@@ -375,7 +376,8 @@ header .btn-hamburger .material-symbols-outlined {
 }
 
 .skill .title::after {
-  background-color: #fff;
+  background-color: #e8eefc;
+  opacity: 0.79;
 }
 .skill .skill-wrap{
   margin-top: 70px;
@@ -545,56 +547,109 @@ header .btn-hamburger .material-symbols-outlined {
   padding: 150px 0;
 }
 
-.project .port {
+.project .project-cardbox{
+  width: 100%;
   display: flex;
-  margin: 20px 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
 }
-
-.project .port .port__img,
-/*다중 선택*/
-.project .port .port__text {
-  width: 50%;
-  height: 400px;
-}
-
-.project .port .port__img .swiper {
-  width: 100%;
-  height: 100%;
-}
-
-.project .port .port__img .swiper img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  /*contain은 영역에 맞추느라 여백생김,cover는 더 큰 영역에 닿으면 끝 이미지 잘림현상*/
-}
-
-.project .port .port__text {
-  padding: 30px;
-  font-size: 14px;
+.project .project-card{
+  width: 350px;
+  height: 500px;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  background:
+    linear-gradient(#0b0f17, #0b0f17) padding-box,
+    linear-gradient(90deg,
+      rgba(110, 168, 254, 0.5),  
+      rgba(155, 123, 255, 0.5)
+    ) border-box;
+  transition: 0.8s;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  opacity: 0;
+  transform: translateY(100px);
+}
+.project.show .project-card{
+  opacity: 1;
+  transform: translateY(0);
+}
+.project.show .project-card:hover{
+  box-shadow: 0 10px 25px rgba(110,168,254,0.2);
+  scale: calc(1.08);
+
 }
 
-.project .port .port__text h3 {
-  font-size: 20px;
-  font-weight: 800;
-}
-
-.project .port .port__text li {
-  line-height: 1.8;
-}
-
-.project .port .port__text li span {
-  font-weight: bold;
-}
-
-.project .port .btn-group {
+.project-card .card-top{
+  width: 100%;
+  height: 40%;
+  overflow: hidden;
   display: flex;
-  column-gap: 40px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
 }
+.project-card .card-top img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  object-position: center;
+  display: block;
+  border-radius: 20px;
+}
+.project-card .card-bottom{
+  width: 100%;
+  height: 60%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.project-card .card-bottom h3{
+  height: 50px;
+  font-size: 16px;
+}
+.project-card .card-bottom p{
+  height: 80px;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #adb5bd;
+}
+.project-card .card-bottom .card-bottom-skill{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 120px;
+  margin-top: 12px;
+  font-size: 10px;
+}
+.project-card .card-bottom .card-bottom-skill span{
+  display: inline-block;
+  padding: 6px 12px;          
+  margin: 4px 3px;               
+  border: 1px solid transparent;     
+  background-color:rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+}
+.project-card .card-bottom .card-bottom-link{
+  height: 38px;
+  margin-top: 16px;
+}
+.project-card .card-bottom .card-bottom-link .link-btn{
+  display: flex;
+  align-items: center;      /* 세로 중앙 */
+  justify-content: center;  /* 가로 중앙 */
+  width: 105px;
+  height: 35px;
+  font-size: 12px;
+  border-radius: 10px;
+  border: 1px solid transparent; 
+  background: rgba(255,255,255,0.05);
+}
+.project-card .card-bottom .card-bottom-link .link-btn:hover{
+  border-color: #6ea8fe;
 
+}
 /* MODAL */
 #imageModal {
   /* 화면(뷰포트)전체 영역 덮기 */
@@ -893,25 +948,17 @@ footer .copyright {
   .project {
     padding: 100px 0;
   }
-
-  .project .port {
-    flex-direction: column;
-    margin: 40px 0;
-  }
-
-  .project .port .port__img,
-  .project .port .port__text {
+  .project .project-cardbox{
     width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
-
-  .project .port .port__text {
-    padding: 20px 0 0;
+  .project.show .project-card:hover{
+    scale: calc(1.04);
   }
-
-  .project .port .btn-group {
-    margin-top: 20px;
-  }
-
   .contact {
     padding: 100px 0;
   }
