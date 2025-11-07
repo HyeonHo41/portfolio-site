@@ -808,6 +808,14 @@ footer .copyright {
   font-weight: 700;
   line-height: 30px;
 }
+@media (min-width: 769px) and (max-width: 1210px) {
+  .skill .skill-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 25px;
+  }
+  }
 
 /* 반응형 스타일 */
 @media screen and (max-width: 767px) {
