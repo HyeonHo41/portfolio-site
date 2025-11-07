@@ -224,6 +224,12 @@ header .btn-hamburger .material-symbols-outlined {
 .visual .textColor{
     color: #6ea8fe;
 }
+.visual .textColor2{
+  background: linear-gradient(90deg, #6ea8fe, #9b7bff);
+  -webkit-background-clip: text;     /* ✅ 배경을 글자 형태로 자르기 */
+  -webkit-text-fill-color: transparent; /* ✅ 글자 색을 투명하게 */
+  font-weight: 600;
+}
 .visual>.inner .div-max{
   display: flex;
   flex-direction: column;
