@@ -985,14 +985,10 @@ footer .copyright {
   .contact {
     padding: 100px 0;
   }
-  .mobile-br{
-    display: block;
-  }
-  .com-br{
-    display: none;
-  }
   .contact__message{
-    line-height: 1;
+    font-size: 14px;      
+    line-height: 1.9;     
+    padding: 0 12px; 
   }
 
   #imageModal .modal-content {
