@@ -118,7 +118,13 @@ hamburgerBtn.addEventListener("click", function () {
 });
 
 liTarget.forEach(function (li) {
-  li.addEventListener("click", function () {
+  li.addEventListener("click", function (e) {
+    const link = li.querySelector("a");
+    if (link) {
+      if (!e.target.closest("a")) {
+        link.click();
+      }
+    }
     navEl.classList.remove("active");
     updateNavIcon();
   });
