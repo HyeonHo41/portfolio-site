@@ -378,16 +378,23 @@ header .btn-hamburger .material-symbols-outlined {
   background-color: #fff;
 }
 .skill .skill-wrap{
+  margin-top: 70px;
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: 30px;
   width: 100%;
-  border: 1px solid white;
 }
 .skill .skill-card{
-  border: 1px solid white;
+  border: 1px solid transparent;
   border-radius: 20px;
-  width: 290px;
+  background:
+    linear-gradient(#0b0f17, #0b0f17) padding-box,
+    linear-gradient(90deg,
+      rgba(110, 168, 254, 0.5),  
+      rgba(155, 123, 255, 0.5)
+    ) border-box;
+  transition: 0.8s;
+  width: 277px;
   height: 250px;
   display: flex;
   flex-direction: column;
@@ -397,6 +404,30 @@ header .btn-hamburger .material-symbols-outlined {
   gap: 20px;
   font-weight: bold;
   font-size: 20px;
+  opacity: 0;
+  transform: translateY(150px);
+  pointer-events: none;
+}
+.skill.show .skill-card{
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto; /*보일 때만 hover 가능 */
+}
+.skill.show .skill-card:nth-child(1):hover{
+  transform: translateY(-10px) perspective(800px) rotateY(12deg) rotateX(3deg) scale(1.08);
+  box-shadow: 0 10px 25px rgba(110,168,254,0.2);
+}
+.skill.show .skill-card:nth-child(2):hover{
+  transform: translateY(-10px) perspective(800px) rotateY(6deg) rotateX(3deg) scale(1.08);
+  box-shadow: 0 10px 25px rgba(110,168,254,0.2);
+}
+.skill.show .skill-card:nth-child(3):hover{
+  transform: translateY(-10px) perspective(800px) rotateY(-6deg) rotateX(3deg) scale(1.08);
+  box-shadow: 0 10px 25px rgba(110,168,254,0.2);
+}
+.skill.show .skill-card:nth-child(4):hover{
+  transform: translateY(-10px) perspective(800px) rotateY(-12deg) rotateX(3deg) scale(1.08);
+  box-shadow: 0 10px 25px rgba(110,168,254,0.2);
 }
 .skill .skill-card .skill-card-title{
   height: 40%;
@@ -415,7 +446,22 @@ header .btn-hamburger .material-symbols-outlined {
   display: block;
 }
 .skill .skill-card .skill-card-list{
-  height: 60%;  
+  height: 60%;
+  width: 270px; 
+  font-size: 12px; 
+  color: #adb5bd;
+  padding: 10px;
+}
+.skill .skill-card .skill-card-list span{
+  display: inline-block;
+  padding: 6px 12px;              
+  margin: 4px 3px;               
+  border: 1px solid transparent;     
+  background-color:rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+}
+.skill .skill-card .skill-card-list span:hover{
+  border-color: #6ea8fe;
 }
 /* .skill .skill__list {
   display: flex;
@@ -827,6 +873,22 @@ footer .copyright {
     flex-direction: column;
     align-items: center;
     gap: 25px;
+  }
+  .skill.show .skill-card:nth-child(1):hover{
+    transform: translateY(-10px) perspective(800px) rotateY(0) rotateX(3deg) scale(1.05);
+    box-shadow: 0 10px 25px rgba(110,168,254,0.2);
+  }
+  .skill.show .skill-card:nth-child(2):hover{
+    transform: translateY(-10px) perspective(800px) rotateY(0) rotateX(3deg) scale(1.05);
+    box-shadow: 0 10px 25px rgba(110,168,254,0.2);
+  }
+  .skill.show .skill-card:nth-child(3):hover{
+    transform: translateY(-10px) perspective(800px) rotateY(0) rotateX(3deg) scale(1.05);
+    box-shadow: 0 10px 25px rgba(110,168,254,0.2);
+  }
+  .skill.show .skill-card:nth-child(4):hover{
+    transform: translateY(-10px) perspective(800px) rotateY(0) rotateX(3deg) scale(1.05);
+    box-shadow: 0 10px 25px rgba(110,168,254,0.2);
   }
   .project {
     padding: 100px 0;
