@@ -949,7 +949,7 @@ footer .copyright {
     padding: 100px 0;
   }
   .project .project-cardbox{
-    width: 100%;
+    width: 80%;
     height: 30%;
     display: flex;
     flex-direction: column;
