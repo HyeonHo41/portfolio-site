@@ -753,6 +753,11 @@ header .btn-hamburger .material-symbols-outlined {
 }
 
 /* 애니메이션 효과 추가 */
+.contact-list li:nth-child(1):hover{
+  transform: translateY(-6px);
+  scale: calc(1.1);
+  font-weight: 900;
+}
 .contact .contact__info li:nth-child(1),
 .contact .contact__info li:nth-child(3) {
   transform: translateX(150px);
@@ -767,39 +772,22 @@ header .btn-hamburger .material-symbols-outlined {
   opacity: 1;
 }
 
-.contact .contact__sns {
-  margin-top: 20px;
-}
 
-.contact .contact__sns ul {
-  display: flex;
-  justify-content: center;
-  column-gap: 10px;
-}
-
-.contact .contact__sns ul li {
-  transform: translateY(100px);
+.contact .contact__message{
+  margin-top: 35px;
+  text-align: center;
   opacity: 0;
+  transform: translateY(50px);
   transition: 1s;
-}
-
-.contact.show .contact__sns ul li {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.contact.show .contact__sns ul li:nth-child(1) {
   transition-delay: 0.2s;
 }
-
-.contact.show .contact__sns ul li:nth-child(2) {
-  transition-delay: 0.4s;
+.contact.show .contact__message{
+    opacity: 1;
+    transform: translateY(0);
 }
-
-.contact .contact__sns ul li img {
-  width: 30px;
+.mobile-br{
+  display: none;
 }
-
 /* FOOTER */
 footer {
   padding: 20px 0; 
@@ -996,6 +984,15 @@ footer .copyright {
   }
   .contact {
     padding: 100px 0;
+  }
+  .mobile-br{
+    display: block;
+  }
+  .com-br{
+    display: none;
+  }
+  .contact__message{
+    line-height: 1;
   }
 
   #imageModal .modal-content {
