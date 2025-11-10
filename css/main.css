@@ -139,7 +139,7 @@ header>.inner {
   justify-content: space-between;
   /*주축 정렬*/
   align-items: center;
-  transition: 0.3 ease;
+  transition: 0.3s ease;
 }
 
 .hide {

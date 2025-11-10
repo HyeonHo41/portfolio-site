@@ -163,3 +163,4 @@ window.addEventListener("scroll", () => {
   // 마지막 스크롤 위치 갱신
   lastScroll = currentScroll;
 });
+
